@@ -46,14 +46,16 @@ void ULogInGameInstance::Init()
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, ip + "  : TFOnReConnect Result");
 		if (port == 1 && b_playercontrollerdisconnect)
 		{
-			UGameplayStatics::OpenLevel(GetWorld(), ipadress);
+			//UGameplayStatics::OpenLevel(GetWorld(), ipadress);
+			UGameplayStatics::OpenLevel(GetWorld(), ipadress,true,FString::FromInt(ALANPlayerController::getid()));
 		}
 	};
 	lp->TFOnReConnectv1Result = [=](int side, int port, FString ip) {
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, ip + "  : TFOnReConnect   v1   Result");
 		if (port == 1 && b_playercontrollerdisconnect)
 		{
-			UGameplayStatics::OpenLevel(GetWorld(), ipadress);
+			//UGameplayStatics::OpenLevel(GetWorld(), ipadress);
+			UGameplayStatics::OpenLevel(GetWorld(), ipadress, true, FString::FromInt(ALANPlayerController::getid()));
 		}
 	};
 	lp->TFOnAppEnterForeground = [=](int side, int port, FString ip) {
